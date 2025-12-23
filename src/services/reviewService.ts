@@ -72,7 +72,6 @@ class ReviewService {
     const newItems = allWords
       .filter(word => !existingWords.has(word.englishWord))
       .map(word => {
-        const now = Date.now();
         return {
           wordId: `${word.englishWord}_${word.timestamp}`,
           word: word.englishWord,

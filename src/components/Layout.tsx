@@ -60,7 +60,7 @@ export function Layout() {
     }
 
     // 点击外部区域关闭所有菜单和面板（现在所有菜单都使用 hover 自动管理，不需要这个逻辑了）
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = (_event: MouseEvent) => {
       // 可以在这里添加其他需要点击外部关闭的逻辑
     };
 
