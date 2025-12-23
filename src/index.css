@@ -1,0 +1,1042 @@
+/* 全局样式重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 根变量 */
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --primary-color: #667eea;
+  --secondary-color: #764ba2;
+  --text-color: #333;
+  --text-secondary: #666;
+  --text-muted: #999;
+  --bg-color: #f5f7fa;
+  --card-bg: #ffffff;
+  --border-color: #e0e0e0;
+  --success-color: #4caf50;
+  --error-color: #c62828;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --radius: 12px;
+  --radius-lg: 16px;
+  --app-zoom: 100%;
+  --card-opacity: 0.7;
+}
+
+/* 基础样式 */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 
+    'Noto Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background: linear-gradient(135deg, #e8eaf6 0%, #f3e5f5 25%, #e1f5fe 50%, #f3e5f5 75%, #e8eaf6 100%);
+  background-size: 400% 400%;
+  background-attachment: fixed;
+  animation: backgroundShift 20s ease infinite;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow-x: hidden;
+}
+
+@keyframes backgroundShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(102, 126, 234, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(118, 75, 162, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(240, 147, 251, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 60% 20%, rgba(245, 87, 108, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+  animation: floatBubbles 15s ease-in-out infinite;
+}
+
+@keyframes floatBubbles {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+#root {
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* 链接样式 */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 按钮基础样式 - 增强版 */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+button:not(:disabled):hover {
+  transform: translateY(-2px);
+}
+
+button:not(:disabled):active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  filter: grayscale(0.3);
+}
+
+/* 按钮点击波纹效果 */
+button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+button:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* 输入框基础样式 - 增强版 */
+input, textarea {
+  font-family: inherit;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  transform: translateY(-1px);
+}
+
+input::placeholder, textarea::placeholder {
+  color: #999;
+  transition: all 0.3s;
+}
+
+input:focus::placeholder, textarea:focus::placeholder {
+  color: #bbb;
+  transform: translateX(5px);
+}
+
+/* 滚动条样式 - 现代化设计 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(135deg, rgba(230, 235, 255, 0.3) 0%, rgba(240, 230, 255, 0.3) 100%);
+  border-radius: 10px;
+  margin: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 2px 8px rgba(102, 126, 234, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5568d3 0%, #6a3d8f 100%);
+  box-shadow: 
+    0 4px 12px rgba(102, 126, 234, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(135deg, #4a5bc4 0%, #5d3580 100%);
+}
+
+/* 响应式断点 */
+/* 移动端: < 600px */
+/* 平板: 600px - 768px */
+/* 桌面: > 768px */
+
+@media (max-width: 600px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* 动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* 工具类 */
+.fade-in {
+  animation: fadeIn 0.5s ease;
+}
+
+.fade-in-scale {
+  animation: fadeInScale 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-in-left {
+  animation: slideInFromLeft 0.5s ease;
+}
+
+.slide-in-right {
+  animation: slideInFromRight 0.5s ease;
+}
+
+.bounce-animation {
+  animation: bounce 1s ease-in-out infinite;
+}
+
+/* 选择文本样式 */
+::selection {
+  background: rgba(102, 126, 234, 0.3);
+  color: inherit;
+}
+
+/* ========== 通用质感效果 ========== */
+
+/* 玻璃态卡片效果 */
+.glass-card {
+  background: rgba(255, 255, 255, var(--card-opacity, 0.95));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* 渐变边框效果 */
+.gradient-border {
+  position: relative;
+  background: white;
+  border-radius: 16px;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 2px;
+  background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #f5576c);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.gradient-border:hover::before {
+  opacity: 1;
+}
+
+/* 光泽扫过效果 */
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-effect::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  transition: transform 0.6s;
+}
+
+.shine-effect:hover::after {
+  transform: translateX(100%) translateY(100%) rotate(45deg);
+}
+
+/* 悬浮卡片效果 */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(102, 126, 234, 0.1);
+}
+
+/* 脉冲动画 */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(102, 126, 234, 0);
+  }
+}
+
+.pulse-effect {
+  animation: pulse 2s infinite;
+}
+
+/* 渐变背景动画 */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient {
+  background: linear-gradient(
+    -45deg,
+    #667eea,
+    #764ba2,
+    #f093fb,
+    #f5576c
+  );
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+/* 3D卡片效果 */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.3s;
+}
+
+.card-3d:hover {
+  transform: rotateX(2deg) rotateY(2deg) scale(1.02);
+}
+
+/* 内发光效果 */
+.inner-glow {
+  box-shadow: 
+    inset 0 1px 3px rgba(255, 255, 255, 0.8),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.05),
+    0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* 霓虹边框效果 */
+.neon-border {
+  position: relative;
+  border: 2px solid transparent;
+  background: white;
+  transition: all 0.3s;
+}
+
+.neon-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(45deg, #667eea, #764ba2, #667eea);
+  background-size: 200% 200%;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s;
+  animation: gradient-shift 3s ease infinite;
+}
+
+.neon-border:hover::before {
+  opacity: 1;
+}
+
+/* 毛玻璃输入框 */
+.glass-input {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: all 0.3s;
+}
+
+.glass-input:focus {
+  background: rgba(255, 255, 255, 1);
+  border-color: #667eea;
+  box-shadow: 
+    0 8px 24px rgba(102, 126, 234, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* 渐变文字效果 */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 浮动动画 */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ========== 通用白色卡片替换 ========== */
+/* 强制覆盖所有白色背景元素 */
+.card-bg, 
+[class*="card"]:not([class*="card-3d"]):not([class*="card-bg"]),
+[class*="container"]:not([class*="quiz-container"]),
+[class*="-section"],
+[class*="-content"],
+[class*="-block"],
+[class*="-area"],
+[class*="-list"],
+[class*="-detail"],
+[class*="-window"],
+.word-list,
+.empty-state,
+.dictate-card,
+.full-translation,
+.words-annotation,
+.annotated-sentence,
+.translation-card,
+.quiz-card,
+.lesson-content,
+.chapter-header,
+.word-selector,
+.difficulty-selector,
+.question-card,
+.word-card,
+.lesson-header,
+.topic-item,
+.meme-card,
+.code-editor,
+.chat-container {
+  background: linear-gradient(135deg, rgba(230, 235, 255, 0.95) 0%, rgba(240, 230, 255, 0.95) 100%) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  box-shadow: 
+    0 10px 40px rgba(102, 126, 234, 0.25),
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+  border: 3px solid rgba(102, 126, 234, 0.25) !important;
+}
+
+/* 移除白色背景 */
+div[style*="background: white"],
+div[style*="background: #fff"],
+div[style*="background: #ffffff"],
+div[style*="background-color: white"],
+div[style*="background-color: #fff"],
+div[style*="background-color: #ffffff"] {
+  background: linear-gradient(135deg, rgba(230, 235, 255, 0.95) 0%, rgba(240, 230, 255, 0.95) 100%) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+
+
+/* ========== 页面标题动画效果 ========== */
+h1, h2, h3 {
+  position: relative;
+  display: inline-block;
+}
+
+h1::after, h2::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 2px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+h1:hover::after, h2:hover::after {
+  width: 100%;
+}
+
+/* ========== 卡片悬停增强效果 ========== */
+[class*="card"]:not(.no-hover),
+[class*="-item"]:not(.no-hover) {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[class*="card"]:not(.no-hover):hover,
+[class*="-item"]:not(.no-hover):hover {
+  transform: translateY(-4px) scale(1.01);
+}
+
+/* ========== 加载骨架屏效果 ========== */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(230, 235, 255, 0.4) 0%,
+    rgba(240, 230, 255, 0.6) 50%,
+    rgba(230, 235, 255, 0.4) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+/* ========== 成功/错误提示动画 ========== */
+.success-message {
+  background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+  animation: slideInFromRight 0.5s ease, bounce 0.5s ease 0.5s;
+}
+
+.error-message {
+  background: linear-gradient(135deg, #f44336 0%, #e53935 100%);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(244, 67, 54, 0.3);
+  animation: slideInFromRight 0.5s ease;
+}
+
+/* ========== 徽章效果 ========== */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+  animation: pulse 2s infinite;
+}
+
+/* ========== 进度条美化 ========== */
+.progress-bar {
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+/* ========== 工具提示效果 ========== */
+[data-tooltip] {
+  position: relative;
+  cursor: help;
+}
+
+[data-tooltip]::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  font-size: 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+  z-index: 1000;
+}
+
+[data-tooltip]:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+/* ========== 响应式优化 ========== */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* ========== 打印样式优化 ========== */
+@media print {
+  body::before,
+  .header,
+  .nav,
+  button,
+  [class*="float"] {
+    display: none !important;
+  }
+  
+  body {
+    background: white;
+  }
+  
+  * {
+    box-shadow: none !important;
+    animation: none !important;
+  }
+}
+
+/* ========== 全局卡片透明度控制 ========== */
+/* 使用伪元素实现背景透明，文字保持不透明 */
+
+/* 常见的白色背景类和样式 - 使用伪元素方法 */
+.quiz-container,
+.term-container,
+.meme-container,
+.dictate-card,
+.question-card,
+.word-selector,
+.difficulty-selector,
+.learn-content,
+.lesson-content,
+.curriculum-sidebar,
+.learn-sidebar,
+.chapter-section,
+.concepts-grid,
+.full-translation,
+.words-annotation,
+.annotated-sentence,
+.modal-content,
+.glass-card,
+.stat-card,
+.mastery-distribution,
+.review-calendar,
+.word-card,
+.review-card,
+.checkin-card,
+.level-card,
+.achievement-card,
+.filters {
+  position: relative !important;
+  background: transparent !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+}
+
+/* 使用伪元素创建透明背景层 */
+.quiz-container::before,
+.term-container::before,
+.meme-container::before,
+.dictate-card::before,
+.question-card::before,
+.word-selector::before,
+.difficulty-selector::before,
+.learn-content::before,
+.lesson-content::before,
+.curriculum-sidebar::before,
+.learn-sidebar::before,
+.chapter-section::before,
+.concepts-grid::before,
+.full-translation::before,
+.words-annotation::before,
+.annotated-sentence::before,
+.modal-content::before,
+.glass-card::before,
+.stat-card::before,
+.mastery-distribution::before,
+.review-calendar::before,
+.word-card::before,
+.review-card::before,
+.checkin-card::before,
+.level-card::before,
+.achievement-card::before,
+.filters::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: rgba(255, 255, 255, var(--card-opacity, 0.7)) !important;
+  border-radius: inherit !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+}
+
+/* 确保内容在背景层之上 */
+.quiz-container > *,
+.term-container > *,
+.meme-container > *,
+.dictate-card > *,
+.question-card > *,
+.word-selector > *,
+.difficulty-selector > *,
+.learn-content > *,
+.lesson-content > *,
+.curriculum-sidebar > *,
+.learn-sidebar > *,
+.chapter-section > *,
+.concepts-grid > *,
+.full-translation > *,
+.words-annotation > *,
+.annotated-sentence > *,
+.modal-content > *,
+.glass-card > *,
+.stat-card > *,
+.mastery-distribution > *,
+.review-calendar > *,
+.word-card > *,
+.review-card > *,
+.checkin-card > *,
+.level-card > *,
+.achievement-card > *,
+.filters > * {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* 选项按钮 */
+.option-btn,
+.difficulty-btn,
+.category-btn,
+.filter-btn {
+  position: relative !important;
+  background: transparent !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  color: #333 !important;
+}
+
+.option-btn::before,
+.difficulty-btn::before,
+.category-btn::before,
+.filter-btn::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: rgba(255, 255, 255, var(--card-opacity, 0.95)) !important;
+  border-radius: inherit !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+}
+
+/* 空状态容器 */
+.empty-state {
+  position: relative !important;
+  background: transparent !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.empty-state::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: rgba(255, 255, 255, var(--card-opacity, 0.95)) !important;
+  border-radius: inherit !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+}
+
+/* 单词项和列表项 */
+.word-item,
+.lesson-card {
+  position: relative !important;
+  background: transparent !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.word-item::before,
+.lesson-card::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: rgba(255, 255, 255, var(--card-opacity, 0.95)) !important;
+  border-radius: inherit !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+}
+
+/* 特殊背景色也应用透明度 */
+.breakdown-item,
+.detail-example p,
+.calendar-day,
+.word-details {
+  position: relative !important;
+  background: transparent !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.breakdown-item::before,
+.detail-example p::before,
+.calendar-day::before,
+.word-details::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: rgba(255, 255, 255, calc(var(--card-opacity, 0.95) * 0.8)) !important;
+  border-radius: inherit !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+}
+
+/* 练习区域特殊背景 */
+.exercise-section {
+  position: relative !important;
+  background: transparent !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.exercise-section::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: rgba(255, 251, 240, var(--card-opacity, 0.95)) !important;
+  border-radius: inherit !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+}
+
+.meme-section.example {
+  position: relative !important;
+  background: transparent !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.meme-section.example::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: rgba(255, 243, 224, var(--card-opacity, 0.95)) !important;
+  border-radius: inherit !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+}
+
+.hint-btn {
+  position: relative !important;
+  background: transparent !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  color: #333 !important;
+}
+
+.hint-btn::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: rgba(255, 243, 224, var(--card-opacity, 0.95)) !important;
+  border-radius: inherit !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+}
+
+/* 输入框也应用透明度 */
+input[type="text"],
+input[type="search"],
+textarea,
+.glass-input {
+  position: relative !important;
+  background: transparent !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  color: #333 !important;
+}
+
+input[type="text"]::before,
+input[type="search"]::before,
+textarea::before,
+.glass-input::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: rgba(255, 255, 255, var(--card-opacity, 0.95)) !important;
+  border-radius: inherit !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+}
+
+/* 确保所有文字保持深色清晰 */
+h1, h2, h3, h4, h5, h6,
+p, span, div, label, button,
+.word-text,
+.question-text,
+.option-text,
+.term-name,
+.lesson-title {
+  color: #333 !important;
+  opacity: 1 !important;
+}
+
+/* 确保按钮文字清晰 */
+button {
+  color: inherit !important;
+}
+
+button:not(.nav-link):not(.bg-btn) {
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+

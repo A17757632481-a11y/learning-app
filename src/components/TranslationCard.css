@@ -1,0 +1,120 @@
+.translation-card {
+  color: #333;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.original-word {
+  font-size: 1.8rem;
+  margin: 0;
+  color: #333;
+}
+
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.play-btn {
+  background: #f0f0f0;
+  font-size: 1.2rem;
+  padding: 0.5rem 0.8rem;
+}
+
+.play-btn:hover {
+  background: #e0e0e0;
+}
+
+.vocab-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.vocab-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.vocab-btn.in-vocab {
+  background: #4caf50;
+  cursor: default;
+}
+
+.vocab-btn:disabled {
+  opacity: 0.8;
+}
+
+.english-info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  color: #666;
+}
+
+.english-word {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.phonetic {
+  color: #888;
+  font-family: monospace;
+}
+
+.card-section {
+  margin-bottom: 1.25rem;
+}
+
+.card-section h3 {
+  font-size: 1rem;
+  color: #555;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.card-section p {
+  margin: 0;
+  line-height: 1.6;
+  color: #444;
+}
+
+.scenarios-list {
+  margin: 0;
+  padding-left: 1.5rem;
+  line-height: 1.8;
+  color: #444;
+}
+
+.scenarios-list li {
+  margin-bottom: 0.25rem;
+}
+
+@media (max-width: 600px) {
+  .card-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .card-actions {
+    width: 100%;
+  }
+
+  .vocab-btn {
+    flex: 1;
+  }
+}

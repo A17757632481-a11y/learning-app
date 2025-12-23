@@ -1,0 +1,319 @@
+.term-quiz-page {
+  padding: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.quiz-container {
+  background: rgba(255, 255, 255, var(--card-opacity, 0.95));
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-container h2 {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.quiz-subtitle {
+  color: #666;
+  margin: 0 0 24px 0;
+  font-size: 14px;
+}
+
+/* 设置区域 */
+.quiz-setup {
+  padding: 20px 0;
+}
+
+.setup-section {
+  margin-bottom: 24px;
+}
+
+.setup-section label {
+  display: block;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.option-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.option-btn {
+  padding: 10px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.option-btn:hover {
+  border-color: #667eea;
+}
+
+.option-btn.active {
+  border-color: #667eea;
+  background: #667eea;
+  color: white;
+}
+
+.type-desc {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #888;
+}
+
+.start-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.start-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* 加载状态 */
+.quiz-loading {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #eee;
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 16px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* 题目区域 */
+.quiz-content {
+  padding: 10px 0;
+}
+
+.quiz-progress {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.score {
+  color: #667eea;
+  font-weight: 500;
+}
+
+.quiz-term {
+  display: inline-block;
+  padding: 6px 14px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.quiz-question {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 24px;
+  padding: 16px;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.quiz-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  font-size: 15px;
+  text-align: left;
+  transition: all 0.2s;
+}
+
+.quiz-option:hover:not(.correct):not(.wrong) {
+  border-color: #667eea;
+  background: #f8f9ff;
+}
+
+.quiz-option.selected {
+  border-color: #667eea;
+  background: #f0f3ff;
+}
+
+.quiz-option.correct {
+  border-color: #4caf50;
+  background: #e8f5e9;
+}
+
+.quiz-option.wrong {
+  border-color: #f44336;
+  background: #ffebee;
+}
+
+.option-letter {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eee;
+  border-radius: 50%;
+  font-weight: 600;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.quiz-option.selected .option-letter {
+  background: #667eea;
+  color: white;
+}
+
+.quiz-option.correct .option-letter {
+  background: #4caf50;
+  color: white;
+}
+
+.quiz-option.wrong .option-letter {
+  background: #f44336;
+  color: white;
+}
+
+/* 解释区域 */
+.quiz-explanation {
+  padding: 16px;
+  background: #f5f7fa;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.result-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.result-badge.correct {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.result-badge.wrong {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.quiz-explanation p {
+  margin: 0;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* 操作按钮 */
+.quiz-actions {
+  text-align: center;
+}
+
+.action-btn {
+  padding: 12px 32px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.action-btn.confirm {
+  background: #667eea;
+  color: white;
+}
+
+.action-btn.confirm:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.action-btn.next {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.action-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+/* 最终得分 */
+.final-score {
+  text-align: center;
+  padding: 20px;
+}
+
+.final-score h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.final-score p {
+  font-size: 24px;
+  color: #667eea;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+  .term-quiz-page {
+    padding: 12px;
+  }
+
+  .quiz-container {
+    padding: 20px;
+  }
+
+  .option-group {
+    flex-direction: column;
+  }
+
+  .option-btn {
+    width: 100%;
+  }
+}

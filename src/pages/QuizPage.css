@@ -1,0 +1,51 @@
+.quiz-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quiz-header h2 {
+  margin: 0;
+  color: #333;
+}
+
+.vocab-count {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #666;
+  background: white;
+  border-radius: 16px;
+}
+
+.empty-state p {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.empty-state .hint {
+  font-size: 1rem;
+  color: #999;
+}
+
+.loading {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #666;
+  background: white;
+  border-radius: 16px;
+}

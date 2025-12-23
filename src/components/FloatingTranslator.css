@@ -1,0 +1,243 @@
+/* 悬浮球 */
+.floating-ball {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+  z-index: 9999;
+  transition: transform 0.2s, box-shadow 0.2s;
+  user-select: none;
+}
+
+.floating-ball:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(102, 126, 234, 0.5);
+}
+
+/* 翻译窗口 */
+.floating-window {
+  position: fixed;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+  z-index: 9998;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.float-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  cursor: move;
+  user-select: none;
+}
+
+.float-header span {
+  font-weight: 500;
+}
+
+.float-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.float-controls button {
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.float-controls button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.float-controls span {
+  font-size: 11px;
+  min-width: 35px;
+  text-align: center;
+}
+
+.float-controls .close-btn {
+  margin-left: 8px;
+}
+
+.float-controls .close-btn:hover {
+  background: rgba(255, 0, 0, 0.5);
+}
+
+.float-controls .popup-btn {
+  font-size: 14px;
+}
+
+.float-controls .popup-btn:hover {
+  background: rgba(0, 200, 100, 0.5);
+}
+
+.float-input-area {
+  display: flex;
+  padding: 10px;
+  gap: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.float-input-area input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.float-input-area input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.float-input-area button {
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.float-input-area button:disabled {
+  opacity: 0.6;
+}
+
+.float-content {
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+}
+
+.float-empty, .float-loading {
+  text-align: center;
+  color: #999;
+  padding: 40px 20px;
+}
+
+.float-result {
+  line-height: 1.6;
+}
+
+.result-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.result-head strong {
+  font-size: 1.3em;
+  color: #333;
+}
+
+.result-head .eng {
+  color: #667eea;
+}
+
+.result-head .phonetic {
+  color: #888;
+  font-family: monospace;
+}
+
+.result-head .play-btn {
+  background: #f0f0f0;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.result-head .play-btn:hover {
+  background: #e0e0e0;
+  transform: scale(1.1);
+}
+
+.result-head .add-vocab-btn {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+
+.result-head .add-vocab-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(245, 87, 108, 0.4);
+}
+
+.result-item {
+  margin-bottom: 10px;
+}
+
+.result-item label {
+  font-size: 0.85em;
+  color: #666;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.result-item p {
+  margin: 0;
+  color: #333;
+}
+
+.result-item ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.result-item li {
+  margin-bottom: 2px;
+}
+
+/* 调整大小手柄 */
+.floating-window .resize-handle {
+  position: absolute;
+}
+
+.floating-window .resize-handle.se {
+  bottom: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  cursor: se-resize;
+}
+
+.floating-window .resize-handle.se::after {
+  content: '';
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #ccc;
+  border-bottom: 2px solid #ccc;
+}
