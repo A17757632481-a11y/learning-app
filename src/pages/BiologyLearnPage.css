@@ -1,0 +1,427 @@
+.biology-learn-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.biology-learn-page .page-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.biology-learn-page .page-header h1 {
+  font-size: 2rem;
+  background: linear-gradient(135deg, #10b981, #059669);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+}
+
+.biology-learn-page .subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+}
+
+/* 学段选择器 */
+.biology-learn-page .level-selector {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.biology-learn-page .level-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+.biology-learn-page .level-btn:hover {
+  background: rgba(16, 185, 129, 0.3);
+  transform: translateY(-2px);
+}
+
+.biology-learn-page .level-btn.active {
+  background: linear-gradient(135deg, #10b981, #059669);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+/* 章节卡片网格 */
+.biology-learn-page .chapters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.biology-learn-page .chapter-card {
+  position: relative;
+  padding: 25px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.biology-learn-page .chapter-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, var(--card-opacity, 0.7));
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  z-index: 0;
+}
+
+.biology-learn-page .chapter-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.biology-learn-page .chapter-card:hover {
+  transform: translateY(-5px);
+}
+
+.biology-learn-page .chapter-card:hover::before {
+  background: rgba(255, 255, 255, calc(var(--card-opacity, 0.7) + 0.1));
+}
+
+.biology-learn-page .chapter-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.biology-learn-page .chapter-card h3 {
+  font-size: 1.3rem;
+  color: #1f2937;
+  margin-bottom: 10px;
+}
+
+.biology-learn-page .chapter-desc {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.biology-learn-page .chapter-progress {
+  margin-top: 15px;
+}
+
+.biology-learn-page .progress-text {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.biology-learn-page .progress-bar {
+  height: 8px;
+  background: rgba(16, 185, 129, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.biology-learn-page .progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981, #059669);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* 返回按钮 */
+.biology-learn-page .back-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.biology-learn-page .back-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* 知识点列表 */
+.biology-learn-page .items-view h2 {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.biology-learn-page .items-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 15px;
+}
+
+.biology-learn-page .item-card {
+  position: relative;
+  padding: 20px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.biology-learn-page .item-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, var(--card-opacity, 0.7));
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  z-index: 0;
+}
+
+.biology-learn-page .item-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.biology-learn-page .item-card.completed::before {
+  background: rgba(16, 185, 129, 0.15);
+}
+
+.biology-learn-page .item-card:hover {
+  transform: translateY(-3px);
+}
+
+.biology-learn-page .item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.biology-learn-page .item-header h3 {
+  font-size: 1.1rem;
+  color: #1f2937;
+  cursor: pointer;
+  flex: 1;
+}
+
+.biology-learn-page .item-header h3:hover {
+  color: #10b981;
+}
+
+.biology-learn-page .item-category {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+.biology-learn-page .complete-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(16, 185, 129, 0.2);
+  color: #059669;
+}
+
+.biology-learn-page .complete-btn:hover {
+  background: rgba(16, 185, 129, 0.3);
+}
+
+.biology-learn-page .item-card.completed .complete-btn {
+  background: #10b981;
+  color: white;
+}
+
+.biology-learn-page .view-btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.biology-learn-page .view-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+/* 知识点详情 */
+.biology-learn-page .item-detail {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.biology-learn-page .detail-card {
+  position: relative;
+  padding: 30px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.biology-learn-page .detail-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, var(--card-opacity, 0.7));
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  z-index: 0;
+}
+
+.biology-learn-page .detail-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.biology-learn-page .detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.biology-learn-page .detail-header h2 {
+  font-size: 1.5rem;
+  color: #1f2937;
+}
+
+.biology-learn-page .detail-category {
+  padding: 6px 15px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+.biology-learn-page .detail-section {
+  margin-bottom: 25px;
+}
+
+.biology-learn-page .detail-section h3 {
+  font-size: 1.1rem;
+  color: #10b981;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(16, 185, 129, 0.3);
+}
+
+.biology-learn-page .detail-content,
+.biology-learn-page .detail-example,
+.biology-learn-page .detail-tips {
+  color: #374151;
+  line-height: 1.8;
+}
+
+.biology-learn-page .detail-content p,
+.biology-learn-page .detail-example p {
+  margin-bottom: 8px;
+}
+
+.biology-learn-page .detail-example {
+  background: rgba(16, 185, 129, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+  border-left: 4px solid #10b981;
+}
+
+.biology-learn-page .detail-tips {
+  background: rgba(245, 158, 11, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+  border-left: 4px solid #f59e0b;
+}
+
+.biology-learn-page .detail-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.biology-learn-page .add-vocab-btn {
+  flex: 1;
+  min-width: 150px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.biology-learn-page .add-vocab-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+}
+
+.biology-learn-page .detail-actions .complete-btn {
+  flex: 1;
+  min-width: 150px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+.biology-learn-page .detail-actions .complete-btn.completed {
+  background: #10b981;
+  color: white;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .biology-learn-page {
+    padding: 15px;
+  }
+
+  .biology-learn-page .page-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .biology-learn-page .level-selector {
+    gap: 10px;
+  }
+
+  .biology-learn-page .level-btn {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
+
+  .biology-learn-page .chapters-grid,
+  .biology-learn-page .items-list {
+    grid-template-columns: 1fr;
+  }
+
+  .biology-learn-page .detail-card {
+    padding: 20px;
+  }
+
+  .biology-learn-page .detail-actions {
+    flex-direction: column;
+  }
+}

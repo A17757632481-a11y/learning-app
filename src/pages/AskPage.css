@@ -1,0 +1,169 @@
+.ask-page {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 140px);
+  max-height: 700px;
+}
+
+.ask-header {
+  margin-bottom: 1rem;
+}
+
+.ask-header h2 {
+  margin: 0 0 1rem 0;
+  color: #333;
+}
+
+.mode-selector {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.mode-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #e0e0e0;
+  background: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.mode-btn:hover {
+  border-color: #667eea;
+}
+
+.mode-btn.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: transparent;
+}
+
+.chat-container {
+  flex: 1;
+  background: white;
+  border-radius: 16px;
+  padding: 1rem;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+}
+
+.empty-chat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #666;
+}
+
+.empty-chat p {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.empty-chat .hint {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.message {
+  max-width: 85%;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  line-height: 1.6;
+}
+
+.message.user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.message.assistant {
+  align-self: flex-start;
+  background: #f5f5f5;
+  color: #333;
+}
+
+.message-content {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.message-content.loading {
+  color: #999;
+}
+
+.ask-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ask-form input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.ask-form input:focus {
+  border-color: #667eea;
+  outline: none;
+}
+
+.ask-form button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ask-form button[type="submit"] {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.ask-form button[type="submit"]:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.ask-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.clear-btn {
+  background: #f0f0f0;
+  color: #666;
+}
+
+.clear-btn:hover {
+  background: #e0e0e0;
+}
+
+@media (max-width: 600px) {
+  .ask-page {
+    height: calc(100vh - 180px);
+  }
+
+  .mode-selector {
+    justify-content: center;
+  }
+
+  .message {
+    max-width: 90%;
+  }
+}

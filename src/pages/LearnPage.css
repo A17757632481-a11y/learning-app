@@ -1,0 +1,269 @@
+.learn-page {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  height: calc(100vh - 80px);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.learn-sidebar {
+  width: 320px;
+  background: rgba(255, 255, 255, var(--card-opacity, 0.95));
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+.learn-sidebar h2 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.sidebar-hint {
+  color: #666;
+  font-size: 13px;
+  margin: 0 0 20px 0;
+}
+
+.chapter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chapter-item {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.chapter-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: #f5f5f5;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.chapter-header:hover {
+  background: #eee;
+}
+
+.chapter-header.expanded {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.chapter-icon {
+  font-size: 20px;
+}
+
+.chapter-title {
+  flex: 1;
+  font-weight: 500;
+}
+
+.chapter-level {
+  font-size: 12px;
+  padding: 2px 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.chapter-header:not(.expanded) .chapter-level {
+  background: #ddd;
+  color: #666;
+}
+
+.chapter-arrow {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.topic-list {
+  background: #fafafa;
+  padding: 8px;
+}
+
+.topic-item {
+  padding: 10px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 4px;
+}
+
+.topic-item:hover {
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.topic-item.active {
+  background: #667eea;
+  color: white;
+}
+
+.topic-title {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.topic-desc {
+  display: block;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.learn-content {
+  flex: 1;
+  background: rgba(255, 255, 255, var(--card-opacity, 0.95));
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.welcome-content {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.welcome-content h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.welcome-content > p {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+.quick-start {
+  text-align: left;
+  max-width: 400px;
+  margin: 0 auto;
+  background: #f9f9f9;
+  padding: 24px;
+  border-radius: 12px;
+}
+
+.quick-start h3 {
+  margin: 0 0 16px 0;
+  color: #333;
+}
+
+.quick-start ol {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.quick-start li {
+  margin-bottom: 12px;
+  line-height: 1.5;
+  color: #555;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  color: #666;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #eee;
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.lesson-content h2 {
+  margin: 0 0 24px 0;
+  font-size: 24px;
+  color: #333;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #eee;
+}
+
+.lesson-section {
+  margin-bottom: 28px;
+}
+
+.lesson-section h3 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.lesson-text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+  white-space: pre-wrap;
+}
+
+.example-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.example-list li {
+  padding: 12px 16px;
+  background: #f5f7fa;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 15px;
+  line-height: 1.6;
+  border-left: 3px solid #667eea;
+}
+
+.lesson-section.practice {
+  background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid #ffc107;
+}
+
+.practice-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #333;
+}
+
+@media (max-width: 900px) {
+  .learn-page {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .learn-sidebar {
+    width: 100%;
+    max-height: 300px;
+  }
+
+  .learn-content {
+    min-height: 400px;
+  }
+}
